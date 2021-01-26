@@ -3,6 +3,8 @@ object t1 {
     val a: Double = 8.48
     val b: Double = 121.88
     val c: Double = a + b
-    println(c)
+//    println(c)
+
+
   }
 }
