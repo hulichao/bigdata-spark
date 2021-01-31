@@ -2,6 +2,9 @@ package com.hoult.work
 
 import org.apache.spark.sql.SparkSession
 
+/**
+ * 日志点击量和曝光率统计
+ */
 object AddLog {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
