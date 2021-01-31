@@ -13,7 +13,7 @@ object SocketDStream {
       .setMaster("local[2]")
     val ssc = new StreamingContext(conf, Seconds(10))
 
-    // 创建DStream
+    // 创建DStream, 使用Linux端
     val lines: DStream[String] = ssc.socketTextStream("localhost", 9999)
 
     // DStream转换

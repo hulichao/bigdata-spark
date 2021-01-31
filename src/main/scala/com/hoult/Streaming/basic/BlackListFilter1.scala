@@ -33,8 +33,8 @@ object BlackListFilter1 {
     wordDStream.transform{rdd =>
       rdd.map{line => (line.split("\\s+")(1).toLowerCase, line)}
         .leftOuterJoin(blackListRDD)
-          .filter{case (_, (_, rightValue)) => ! rightValue.getOrElse(false)}
-          .map{case (_, (leftValue, _)) => leftValue}
+//          .filter{case (_, (_, rightValue)) => !rightValue.getOrElse(false)}
+//          .map{case (_, (leftValue, _)) => leftValue}
     }.print(20)
 
     // 流式数据的输出

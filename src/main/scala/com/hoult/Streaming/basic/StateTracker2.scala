@@ -29,6 +29,7 @@ object StateTracker2 {
       // 输出值
       (key, sum)
     }
+    //注意，尽量用 mapWithState 而不是updateStateByKey
     val spec = StateSpec.function(mappingFunction _)
     val resultDStream: DStream[(String, Int)] = pairsDStream.mapWithState[Int, (String, Int)](spec)
       // 显示快照（显示所有相关的key-value）

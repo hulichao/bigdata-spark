@@ -11,7 +11,7 @@ object HotWordStats {
     Logger.getLogger("org").setLevel(Level.ERROR)
     val conf = new SparkConf().setAppName("FileDStream").setMaster("local[*]")
     val ssc = new StreamingContext(conf, Seconds(5))
-    // 设置检查点，保存状态。在生产中目录应该设置到HDFS
+    // 设置检查点，保存状态。在生产中目录应该设置到HDFS,(w1 - t1 - t2 + t4 + t5 这种方式时候需要checkpoint)
     ssc.checkpoint("data/checkpoint")
 
     // 创建DStream
@@ -27,7 +27,7 @@ object HotWordStats {
     wordCounts1.print()
 
     // window2 = w1 - t1 - t2 + t4 + t5
-    // 需要checkpoint支持
+    // 需要checkpoint支持,如果每个窗口交叉内容角度，效率高
     val wordCounts2: DStream[(String, Int)] = lines.flatMap(_.split("\\s+"))
       .map((_, 1))
       .reduceByKeyAndWindow(_+_, _-_, Seconds(20), Seconds(10))

@@ -17,17 +17,17 @@ object WindowDemo {
 
     // DStream转换和输出
     // foreachRDD输出
-//    lines.foreachRDD{(rdd, time) =>
-//      println(s"rdd = ${rdd.id}; time = $time")
-//      rdd.foreach(println)
-//    }
+    lines.foreachRDD{(rdd, time) =>
+      println(s"rdd = ${rdd.id}; time = $time")
+      rdd.foreach(println)
+    }
 
     // 窗口操作
     val res1: DStream[String] = lines.reduceByWindow(_ + " " + _, Seconds(20), Seconds(10))
-    res1.print()
+//    res1.print()
 
     val res2: DStream[String] = lines.window(Seconds(20), Seconds(10))
-    res2.print()
+//    res2.print()
 
     val res3: DStream[Int] = res2.map(_.toInt).reduce(_ + _)
     res3.print()

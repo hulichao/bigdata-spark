@@ -32,7 +32,7 @@ object StateTracker1 {
 
     // DStream输出
     resultDStream.print()
-    resultDStream
+    resultDStream.repartition(1)
       .saveAsTextFiles("data/output1/")
 
     // 启动作业
