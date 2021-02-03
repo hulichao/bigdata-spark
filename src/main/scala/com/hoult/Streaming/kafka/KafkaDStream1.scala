@@ -1,5 +1,6 @@
 package com.hoult.Streaming.kafka
 
+import org.apache.kafka.clients.consumer
 import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecord}
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.log4j.{Level, Logger}
@@ -39,7 +40,7 @@ object KafkaDStream1 {
 
   def getKafkaConsumerParameters(groupid: String): Map[String, Object] = {
     Map[String, Object](
-      ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG -> "hadoop3:9092,hadoop4:9092",
+      ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG -> "linux121:9092,linux122:9092",
       ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG -> classOf[StringDeserializer],
       ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG -> classOf[StringDeserializer],
       ConsumerConfig.GROUP_ID_CONFIG -> groupid,

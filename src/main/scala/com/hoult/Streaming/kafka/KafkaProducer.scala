@@ -10,7 +10,7 @@ object KafkaProducer {
     // 定义 kafka 参数
     val brokers = "linux121:9092,linux122:9092,linux123:9092"
     val topic1 = "hoult_topic01"
-    val topic2 = "hoult_topic02"
+    val topic2 = "topicB"
     val prop = new Properties()
 
     prop.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokers)
