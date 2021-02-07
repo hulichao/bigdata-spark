@@ -47,9 +47,9 @@ object GraphXExample1 {
 //        .filter(edge => edge.attr > 5)
 //      .foreach(println)
 //
-//    graph.triplets
-//      .filter { t => t.attr > 5 }
-//      .foreach(println)
+    graph.triplets
+      .filter { t => t.attr > 5 }
+      .foreach(println)
 
     // 属性操作。degress操作，找出图中最大的出度、入度、度数
 //    val inDegress: (VertexId, Int) = graph.inDegrees
