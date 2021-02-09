@@ -70,8 +70,8 @@ object OffsetsWithRedisUtils {
   }
 
   def main(args: Array[String]): Unit = {
-    val topics = Array("topicB", "topicC")
-    val groupid = "group01"
+    val topics = Array("mytopic1")
+    val groupid = "mygroup1"
     val x: Map[TopicPartition, Long] = getOffsetsFromRedis(topics, groupid)
     x.foreach(println)
   }
