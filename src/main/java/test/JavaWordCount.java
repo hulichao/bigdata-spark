@@ -1,3 +1,5 @@
+package test;
+
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -9,7 +11,7 @@ import java.util.Arrays;
 public class JavaWordCount {
     public static void main(String[] args) {
         // 1 创建 JavaSparkContext
-        SparkConf conf = new SparkConf().setAppName("JavaWordCount").setMaster("local[*]");
+        SparkConf conf = new SparkConf().setAppName("test.JavaWordCount").setMaster("local[*]");
         JavaSparkContext jsc = new JavaSparkContext(conf);
         jsc.setLogLevel("warn");
 
