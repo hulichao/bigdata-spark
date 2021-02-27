@@ -1,0 +1,10 @@
+{
+  "ename":"ALLEN",
+  "comm":300,
+  "deptno":30,
+  "empno":7499,
+  "hiredate":"1981-02-20 00:00:00",
+  "job":"SALESMAN",
+  "mgr":7698,
+  "sal":1600
+}
