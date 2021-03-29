@@ -2,7 +2,7 @@ package com.hoult.sparkcore
 
 import org.apache.spark.{SparkConf, SparkContext}
 
-object WordCount{
+object WordCount2{
 
   def main(args: Array[String]): Unit = {
 

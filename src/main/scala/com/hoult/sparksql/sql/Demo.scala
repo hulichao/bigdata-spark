@@ -2,7 +2,6 @@ package com.hoult.spark.sql
 
 import java.util
 
-import com.alibaba.fastjson.{JSON, JSONObject}
 import com.hoult.spark.common.Father
 import org.apache.spark.rdd.RDD
 
