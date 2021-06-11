@@ -41,7 +41,7 @@ class TypeSafeUDAF extends Aggregator[Sales, SalesBuffer, Double]{
   override def outputEncoder: Encoder[Double] = Encoders.scalaDouble
 }
 
-object TypeSafeUDAFTest{
+object JsonUDAFTest{
   def main(args: Array[String]): Unit = {
     Logger.getLogger("org").setLevel(Level.WARN)
     val spark = SparkSession.builder()
@@ -61,7 +61,7 @@ object TypeSafeUDAFTest{
     ds.show
 
     val rate: TypedColumn[Sales, Double] = new TypeSafeUDAF().toColumn.name("rate")
-    ds.select(rate).show
+    ds.select(rate, rate).show
 
     spark.stop()
   }

@@ -35,14 +35,14 @@ object InputOutputFileDemo {
 //        .save("data/parquet")
 
     // json
-//    val df3: DataFrame = spark.read.format("json").load("data/emp.json")
+//    val df3: DataFrame = spark.read.format("json").load("data/emp2.json")
 //    df3.show()
 //
 //    sql(
 //      """
 //        |create or replace temporary view emp
 //        | using json
-//        |options (path "data/emp.json")
+//        |options (path "data/emp2.json")
 //        |""".stripMargin)
 //    sql(
 //      """

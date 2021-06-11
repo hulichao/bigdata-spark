@@ -25,7 +25,7 @@ object InputOutputDemo {
 
         // Use JSON
         val df4 = spark.read.format("json")
-          .load("data/emp.json")
+          .load("data/emp2.json")
           .show
 
         spark.sql(
@@ -45,14 +45,14 @@ object InputOutputDemo {
           .save("data/parquet")
 
         // JSON
-        val fileJson = "data/emp.json"
+        val fileJson = "data/emp2.json"
         val df6 = spark.read.format("json").load(fileJson)
 
         spark.sql(
           """
             |CREATE OR REPLACE TEMPORARY VIEW emp
             | USING json
-            | options(path "data/emp.json")
+            | options(path "data/emp2.json")
             |""".stripMargin)
 
         spark.sql("SELECT * FROM emp").show()
