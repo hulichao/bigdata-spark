@@ -1,4 +1,4 @@
-package com.hoult.sparksql
+package com.hoult.sparksql.udf
 
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}

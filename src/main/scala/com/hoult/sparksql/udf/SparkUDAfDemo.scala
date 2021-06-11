@@ -1,10 +1,9 @@
-package com.hoult.spark.sql
+package com.hoult.sparksql.udf
 
-import com.hoult.spark.sql.SparkUdfDemo.spark
 import org.apache.spark.SparkConf
+import org.apache.spark.sql._
 import org.apache.spark.sql.expressions.{Aggregator, MutableAggregationBuffer, UserDefinedAggregateFunction}
-import org.apache.spark.sql.types.{DataType, DoubleType, IntegerType, LongType, StringType, StructType}
-import org.apache.spark.sql.{DataFrame, Encoder, Encoders, Row, SparkSession, TypedColumn}
+import org.apache.spark.sql.types.{DataType, DoubleType, LongType, StructType}
 
 
 object SparkUDAfDemo {

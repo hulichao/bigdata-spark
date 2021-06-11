@@ -1,8 +1,9 @@
-package com.hoult.sparksql
+package com.hoult.sparksql.udf
 
 import com.alibaba.fastjson.{JSON, JSONObject}
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.expressions.Aggregator
+import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{Encoder, Encoders, SparkSession, TypedColumn}
 
 class CombineJsonUDAF extends Aggregator[String, String, String]{
@@ -76,13 +77,19 @@ object TypeSafeUDAFTest{
         |""".stripMargin
     )
 
+    val rate: TypedColumn[String, String] = new CombineJsonUDAF().toColumn.name("c")
     import spark.implicits._
     val ds = spark.createDataset(jsons)
-    ds.show
-
-    val rate: TypedColumn[String, String] = new CombineJsonUDAF().toColumn.name("c")
-    ds.select(rate).show(false)
+      .map(x => (x, "hu"))
+      .toDF("json", "name")
+      .groupBy("name")
+      .agg(expr("collect_set(json) as json_list"))
+      .rdd
+      .collect()
+      .foreach(println)
 
     spark.stop()
   }
 }
+
+case class Entity(subject: Array[String], varJson: String)
