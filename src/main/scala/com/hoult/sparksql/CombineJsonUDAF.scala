@@ -4,8 +4,6 @@ import com.alibaba.fastjson.{JSON, JSONObject}
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.expressions.Aggregator
 import org.apache.spark.sql.{Encoder, Encoders, SparkSession, TypedColumn}
-import org.json4s._
-import org.json4s.jackson.JsonMethods._
 
 class CombineJsonUDAF extends Aggregator[String, String, String]{
   // 定义初值
