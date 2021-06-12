@@ -7,7 +7,6 @@ object SparkSqlWrite {
   val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("Spark-SQl")
   val spark = SparkSession.builder().config(conf).enableHiveSupport().getOrCreate()
   val sc = spark.sparkContext
-  import spark.implicits._
 
   def main(args: Array[String]): Unit = {
     val filename = "data/students.json"
