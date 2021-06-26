@@ -1,10 +1,9 @@
 package com.hoult.spark.stream
 
-import com.hoult.spark.common.Father
-import com.hoult.spark.stream.DstreamDemo.ssc
+import com.hoult.spark.common.Mother
 import org.apache.spark.streaming.dstream.DStream
 
-object KafkaSource extends Father{
+object KafkaSource extends Mother {
   def main(args: Array[String]): Unit = {
     //1.初始化配置
     //2.初始化streaming
@@ -15,7 +14,7 @@ object KafkaSource extends Father{
 
     val wordStreams: DStream[String] = lineStreams.flatMap(_.split("\\s+"))
     val wordAndOne: DStream[(String, Int)] = wordStreams.map((_, 1))
-    val wordAndCount: DStream[(String, Int)] = wordAndOne.reduceByKey(_+_)
+    val wordAndCount: DStream[(String, Int)] = wordAndOne.reduceByKey(_ + _)
     //4.打印
     wordAndCount.print()
     //5.启动，并等待输入

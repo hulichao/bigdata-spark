@@ -1,8 +1,8 @@
 package com.hoult.spark.stream
 
-import com.hoult.spark.common.Father
+import com.hoult.spark.common.Mother
 
-object FileStream extends Father{
+object FileStream extends Mother{
 
   def main(args: Array[String]): Unit = {
 

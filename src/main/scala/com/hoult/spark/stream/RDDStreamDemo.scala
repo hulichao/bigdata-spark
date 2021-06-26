@@ -1,12 +1,11 @@
 package com.hoult.spark.stream
 
-import com.hoult.spark.common.Father
-import com.hoult.spark.stream.DstreamDemo.ssc
+import com.hoult.spark.common.Mother
 import org.apache.spark.rdd.RDD
 
 import scala.collection.mutable
 
-object RDDStreamDemo extends Father{
+object RDDStreamDemo extends Mother {
   def main(args: Array[String]): Unit = {
     //1.初始化Spark配置信息
     //2.初始化SparkStreamingContext
@@ -14,10 +13,10 @@ object RDDStreamDemo extends Father{
     val rddQueue = new mutable.Queue[RDD[Int]]()
 
     //4.创建QueueInputDStream
-    val inputStream = ssc.queueStream(rddQueue,oneAtATime = false)
+    val inputStream = ssc.queueStream(rddQueue, oneAtATime = false)
 
     //5.处理队列中的RDD数据
-    val mappedStream = inputStream.map((_,1))
+    val mappedStream = inputStream.map((_, 1))
     val reducedStream = mappedStream.reduceByKey(_ + _)
 
     //6.打印结果
